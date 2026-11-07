@@ -71,6 +71,16 @@
   const video = q('.hero-video');
   const videoButton = q('.video-toggle');
   if (video && videoButton) {
+    // Start with a plain black surface (no poster or previous graphic).
+    // Reveal the moving background only once the first video frame is decoded.
+    const showFirstFrame = () => {
+      if (video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) return;
+      requestAnimationFrame(() => video.classList.add('is-ready'));
+    };
+    video.addEventListener('loadeddata', showFirstFrame);
+    video.addEventListener('playing', showFirstFrame);
+    video.addEventListener('canplay', showFirstFrame);
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) showFirstFrame();
     const syncVideoButton = () => {
       videoButton.textContent = video.paused ? 'Play video ▶' : 'Pause video Ⅱ';
       videoButton.setAttribute('aria-label', video.paused ? 'Play background video' : 'Pause background video');
@@ -78,6 +88,7 @@
     };
     const videoFailed = () => {
       video.closest('.hero')?.classList.add('video-unavailable');
+      video.classList.remove('is-ready');
       videoButton.hidden = true;
     };
     video.addEventListener('play', syncVideoButton);
