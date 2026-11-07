@@ -51,7 +51,7 @@ h1, h2, h3, p { margin-top: 0; }
 .hero-video.is-ready { opacity: 1; }
 .hero-shade { background: linear-gradient(180deg, rgb(0 0 0 / 32%), rgb(0 0 0 / 78%)); }
 .hero.video-unavailable .hero-video { visibility: hidden; }
-.hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 100svh; padding: calc(var(--header-height) + 58px) var(--pad) 44px; }
+.hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 100svh; padding: calc(var(--header-height) + 28px) var(--pad) 44px; }
 .eyebrow, .section-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
 /* Eyebrow and playback control belong to one horizontal alignment row on all sizes. */
 .hero-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
@@ -273,7 +273,7 @@ html.dialog-fallback dialog[open] { position: fixed; z-index: 200; inset: 24px 0
   /* On phones, size the cover to its content rather than using a full-screen
      flex auto-margin that pushed the headline to the bottom of tall phones. */
   .hero { min-height: 0; }
-  .hero-content { min-height: 0; padding-top: 140px; padding-bottom: 35px; }
+  .hero-content { min-height: 0; padding-top: 90px; padding-bottom: 35px; }
   .hero .eyebrow { padding: 0; font-size: 8px; letter-spacing: .08em; line-height: 1.4; }
   .hero-topline { gap: 12px; }
   .hero-topline .video-toggle { padding: 7px 10px; font-size: 9px; }
